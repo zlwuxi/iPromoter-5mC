@@ -26,8 +26,8 @@ import math
 
 from tensorflow.python.keras.callbacks import ReduceLROnPlateau
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # 只显示error和warining信息 3 只显示error信息
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 这一行注释掉就是使用cpu，不注释就是使用gpu
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Only error and warining information are displayed
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # To comment out this line is to use the CPU, not to comment out is to use the gpu
 
 
 def calc(TN, FP, FN, TP):
@@ -71,7 +71,7 @@ def my_main(count, number):
     print("tn, fp, fn, tp=", tn, fp, fn, tp)
     # sn, sp, acc, mcc = calc(tn, fp, fn, tp)
     fpr, tpr, thresholds = roc_curve(y_test_class, y_predict_my[:, 1])
-    roc_auc = auc(fpr, tpr)  # auc为Roc曲线下的面积
+    roc_auc = auc(fpr, tpr)  # Auc is the area under the Roc curve
     roc_value.append(roc_auc)
     print("AUC=%.6f" % roc_auc)
     with open(r'H:\pyworkspace\final_funsion\onehot\onehot_result.txt',
@@ -80,14 +80,14 @@ def my_main(count, number):
         f.write('\ntn, fp, fn, tp=' + str(tn) + "," + str(fp) + ',' + str(fn) + ',' + str(tp) + '\n')
         # f.write('sn=' + str(sn) + " sp=" + str(sp) + ' acc=' + str(acc) + ' mcc=' + str(mcc) + ' auc=' + str(
         #     roc_auc) + '\n')
-    # 开始画ROC曲线
+    # Start drawing the ROC curve
     # plt.plot(fpr, tpr, 'b', label='AUC = %0.3f' % roc_auc)
     # plt.legend(loc='lower right')
     # plt.plot([0, 1], [0, 1], 'r--')
     # plt.xlim([-0.1, 1.1])
     # plt.ylim([-0.1, 1.1])
-    # plt.xlabel('False Positive Rate')  # 横坐标是fpr
-    # plt.ylabel('True Positive Rate')  # 纵坐标是tpr
+    # plt.xlabel('False Positive Rate')  # The x-coordinate is FPR
+    # plt.ylabel('True Positive Rate')  # The y-coordinate is TPR
     # # plt.title('Receiver operating characteristic example')
     # plt.show()
 

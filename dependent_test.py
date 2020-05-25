@@ -2,6 +2,11 @@
 # -*- coding:utf-8 -*-
 # Author:zhanglei Time:2020/3/12 21:22
 
+
+"""
+Independent testing and result generation.
+"""
+
 import tensorflow as tf
 
 try:
@@ -25,10 +30,8 @@ import math
 
 from tensorflow.python.keras.callbacks import ReduceLROnPlateau
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # 只显示error和warining信息 3 只显示error信息
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # 这一行注释掉就是使用cpu，不注释就是使用gpu
-
-"""模型生成"""
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Display only error and warining information 3 display only error information.
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # To comment out this line is to use cpu, without comments, that is, to use gpu.
 
 
 def model_test(X_test, Y_test, num):
@@ -39,16 +42,13 @@ def model_test(X_test, Y_test, num):
     tn, fp, fn, tp = confusion_matrix(y_test_class, y_predict_class).ravel()
     print("TN,FP,FN,TP=", tn, fp, fn, tp)
     fpr, tpr, thresholds = roc_curve(y_test_class, y_predict[:, 1])
-    roc_auc = auc(fpr, tpr)  # auc为Roc曲线下的面积
+    roc_auc = auc(fpr, tpr)  # Auc is the area under the Roc curve
     with open(r'H:\pyworkspace\final_funsion\onehot\onehot_dependent_result.txt',
               'a') as f:
         f.write('base ' + num)
         f.write(
             '\ntn, fp, fn, tp=' + str(tn) + "," + str(fp) + ',' + str(fn) + ',' + str(tp) + ',' + str(roc_auc) + '\n')
     del model
-
-
-"""总测试"""
 
 
 def my_main(number):
