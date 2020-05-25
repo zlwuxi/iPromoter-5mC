@@ -247,15 +247,15 @@ This predictor program runs on ***windows10, pycharm and python3.7.4*** when it 
 ## Use the following code for quick configuration:  
 ***pip install -r requirements.txt***  
 
-#iPromoter-5mC Quick run package  
+# iPromoter-5mC Quick run package  
 After decompressing the ***iPromoter-5mC_main_program.rar*** file, change the relevant code according to the comment line at the end of the ***main_predictor.py*** file. The relevant result file is directly generated locally, which can realize large data volume, efficient and fast related experiments.
 
-#Description of other related documents of iPromoter-5mC  
+# Description of other related documents of iPromoter-5mC  
 ***all_negative.fasta*** and ***all_positive.fasta*** is the original data file.  
 ***Generate_dataset.py*** and ***Generate_traindata.py*** can generate relevant experimental data.  
 ***create_submodeldata.py*** , ***get_submodels.py*** and ***funsion_test.py*** Realize model generation, cross-validation and other related work.  
 ***dependent_test.py*** can complete the test task of independent testset.  
-##Due to the limitation of the amount of data, the compressed files of the generated model, data, etc. were uploaded.  
+## Due to the limitation of the amount of data, the compressed files of the generated model, data, etc. were uploaded.  
 ***traindata.rar*** contains the data required for the training set.  
 ***Independent_testset.rar*** contains the data required by the test set.  
 ***model.rar*** contains the resulting final submodels.  
